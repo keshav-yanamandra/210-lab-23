@@ -14,6 +14,19 @@ void display_trip(list<Goat> trip);
 int main_menu();
 
 int main() {
+    // testing new constructors
+Goat g1;
+    cout << "g1 created" << endl;
+
+    Goat g2("a");
+    cout << "g2 created" << endl;
+
+    Goat g3("b", 2);
+    cout << "g3 created" << endl;
+
+    Goat g4("c", 5, "brown");
+    cout << "g4 created" << endl;
+
     srand(time(0));
     bool again;
 
