@@ -15,7 +15,7 @@ int main_menu();
 
 int main() {
     // testing new constructors
-Goat g1;
+    Goat g1;
     cout << "g1 created" << endl;
 
     Goat g2("a");
@@ -27,6 +27,9 @@ Goat g1;
     Goat g4("c", 5, "brown");
     cout << "g4 created" << endl;
 
+    cout << (g3 < g4) << endl;
+    cout << (g4 < g3) << endl;
+    
     srand(time(0));
     bool again;
 
