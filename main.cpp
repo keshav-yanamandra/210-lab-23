@@ -15,35 +15,55 @@ int main_menu();
 
 int main() {
     // testing new constructors
-    Goat g1;
-    cout << "g1 created" << endl;
+    // Goat g1;
+    // cout << "g1 created" << endl;
 
-    Goat g2("a");
-    cout << "g2 created" << endl;
+    // Goat g2("a");
+    // cout << "g2 created" << endl;
 
-    Goat g3("b", 2);
-    cout << "g3 created" << endl;
+    // Goat g3("b", 2);
+    // cout << "g3 created" << endl;
 
-    Goat g4("c", 5, "brown");
-    cout << "g4 created" << endl;
+    // Goat g4("c", 5, "brown");
+    // cout << "g4 created" << endl;
 
-    cout << (g3 < g4) << endl;
-    cout << (g4 < g3) << endl;
+    // cout << (g3 < g4) << endl;
+    // cout << (g4 < g3) << endl;
+
+
+    int choice;
+
+    cout << "*** GOAT MANAGER 3001 ***" << endl;
+    cout << "[1] Add a goat" << endl;
+    cout << "[2] Delete a goat" << endl;
+    cout << "[3] List goats" << endl;
+    cout << "[4] Quit" << endl;
+    cout << "Choice --> ";
+    cin >> choice;
+
+    while (choice < 1 || choice > 4) {
+        cout << "Invalid choice. Try again." << endl;
+        cout << "Choice --> ";
+        cin >> choice;
+    }
+
+    return choice;
+
     
-    srand(time(0));
-    bool again;
+    // srand(time(0));
+    // bool again;
 
     // read & populate arrays for names and colors
-    ifstream fin("names.txt");
-    string names[SZ_NAMES];
-    int i = 0;
-    while (fin >> names[i++]);
-    fin.close();
-    ifstream fin1("colors.txt");
-    string colors[SZ_COLORS];
-    i = 0;
-    while (fin1 >> colors[i++]);
-    fin1.close();
+    // ifstream fin("names.txt");
+    // string names[SZ_NAMES];
+    // int i = 0;
+    // while (fin >> names[i++]);
+    // fin.close();
+    // ifstream fin1("colors.txt");
+    // string colors[SZ_COLORS];
+    // i = 0;
+    // while (fin1 >> colors[i++]);
+    // fin1.close();
 
 
 
