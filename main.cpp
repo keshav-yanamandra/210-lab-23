@@ -31,20 +31,26 @@ int main() {
     // cout << (g4 < g3) << endl;
 
 
-    int choice;
 
-    cout << "*** GOAT MANAGER 3001 ***" << endl;
-    cout << "[1] Add a goat" << endl;
-    cout << "[2] Delete a goat" << endl;
-    cout << "[3] List goats" << endl;
-    cout << "[4] Quit" << endl;
-    cout << "Choice --> ";
-    cin >> choice;
+    list<Goat> trip;
 
-    while (choice < 1 || choice > 4) {
-        cout << "Invalid choice. Try again." << endl;
-        cout << "Choice --> ";
-        cin >> choice;
+    again = true;
+
+    while (again) {
+        int choice = main_menu();
+
+        if (choice == 1) {
+            // add goat later
+        }
+        else if (choice == 2) {
+            // delete goat later
+        }
+        else if (choice == 3) {
+            // display goats later
+        }
+        else if (choice == 4) {
+            again = false;
+        }
     }
 
     return choice;
@@ -69,5 +75,25 @@ int main() {
 
 
     return 0;
+}
+
+int main_menu() {
+    int choice;
+
+    cout << "*** GOAT MANAGER 3001 ***" << endl;
+    cout << "[1] Add a goat" << endl;
+    cout << "[2] Delete a goat" << endl;
+    cout << "[3] List goats" << endl;
+    cout << "[4] Quit" << endl;
+    cout << "Choice --> ";
+    cin >> choice;
+
+    while (choice < 1 || choice > 4) {
+        cout << "Invalid choice. Try again." << endl;
+        cout << "Choice --> ";
+        cin >> choice;
+    }
+
+    return choice;
 }
 
