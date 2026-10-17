@@ -66,12 +66,13 @@ int main_menu() {
     cout << "[3] List goats" << endl;
     cout << "[4] Quit" << endl;
     cout << "Choice --> ";
-    cin >> choice;
 
-    while (choice < 1 || choice > 4) {
+    while (!(cin >> choice) || choice < 1 || choice > 4) {
+        cin.clear();
+        cin.ignore(1000, '\n');
+
         cout << "Invalid choice. Try again." << endl;
         cout << "Choice --> ";
-        cin >> choice;
     }
 
     return choice;
@@ -84,19 +85,31 @@ void add_goat(list<Goat> &trip, string names[], string colors[]) {
 
     Goat newGoat(name, age, color);
     trip.push_back(newGoat);
+
+    cout << endl;
+    cout << "Added: " << name << " (" << age << ", " << color << ")" << endl;
+    cout << endl;
 }
 
 void display_trip(list<Goat> trip) {
     if (trip.empty()) {
+        cout << endl;
         cout << "There are no goats in the trip." << endl;
+        cout << endl;
         return;
     }
 
+    cout << endl;
+    cout << "Goats:" << endl;
+
     for (Goat g : trip) {
-        cout << g.get_name() << " "
-             << g.get_age() << " "
-             << g.get_color() << endl;
+        cout << "    "
+             << g.get_name() << " ("
+             << g.get_age() << ", "
+             << g.get_color() << ")" << endl;
     }
+
+    cout << endl;
 }
 
 int select_goat(list<Goat> trip) {
@@ -104,12 +117,23 @@ int select_goat(list<Goat> trip) {
     int choice;
 
     for (Goat g : trip) {
-        cout << "    [" << number << "] "  << g.get_name() << " (" << g.get_age() << ", " << g.get_color() << ")" << endl;
+        cout << "    [" << number << "] "
+             << g.get_name() << " ("
+             << g.get_age() << ", "
+             << g.get_color() << ")" << endl;
+
         number++;
     }
 
     cout << "Choice --> ";
-    cin >> choice;
+
+    while (!(cin >> choice)) {
+        cin.clear();
+        cin.ignore(1000, '\n');
+
+        cout << "Invalid choice. Try again." << endl;
+        cout << "Choice --> ";
+    }
 
     return choice;
 }
