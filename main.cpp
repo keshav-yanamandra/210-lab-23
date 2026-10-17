@@ -43,7 +43,7 @@ int main() {
             add_goat(trip, names, colors);
         }
         else if (choice == 2) {
-            // delete goat
+            delete_goat(trip);
         }
         else if (choice == 3) {
             display_trip(trip);
@@ -99,3 +99,43 @@ void display_trip(list<Goat> trip) {
     }
 }
 
+int select_goat(list<Goat> trip) {
+    int number = 1;
+    int choice;
+
+    for (Goat g : trip) {
+        cout << "    [" << number << "] "  << g.get_name() << " (" << g.get_age() << ", " << g.get_color() << ")" << endl;
+        number++;
+    }
+
+    cout << "Choice --> ";
+    cin >> choice;
+
+    return choice;
+}
+
+void delete_goat(list<Goat> &trip) {
+    if (trip.empty()) {
+        cout << "There are no goats to delete." << endl;
+        return;
+    }
+
+    int choice = select_goat(trip);
+
+    if (choice < 1 || choice > trip.size()) {
+        cout << "Invalid goat number." << endl;
+        return;
+    }
+
+    list<Goat>::iterator it = trip.begin();
+
+    for (int i = 1; i < choice; i++) {
+        it++;
+    }
+
+    string name = it->get_name();
+
+    trip.erase(it);
+
+    cout << name << " was deleted." << endl;
+}
