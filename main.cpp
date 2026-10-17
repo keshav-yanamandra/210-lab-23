@@ -14,23 +14,23 @@ void display_trip(list<Goat> trip);
 int main_menu();
 
 int main() {
-    // testing new constructors
-    // Goat g1;
-    // cout << "g1 created" << endl;
+    srand(time(0));
+    bool again;
 
-    // Goat g2("a");
-    // cout << "g2 created" << endl;
+    // read & populate arrays for names and colors
+    ifstream fin("names.txt");
+    string names[SZ_NAMES];
+    int i = 0;
 
-    // Goat g3("b", 2);
-    // cout << "g3 created" << endl;
+    while (fin >> names[i++]);
+    fin.close();
 
-    // Goat g4("c", 5, "brown");
-    // cout << "g4 created" << endl;
+    ifstream fin1("colors.txt");
+    string colors[SZ_COLORS];
+    i = 0;
 
-    // cout << (g3 < g4) << endl;
-    // cout << (g4 < g3) << endl;
-
-
+    while (fin1 >> colors[i++]);
+    fin1.close();
 
     list<Goat> trip;
 
@@ -40,42 +40,22 @@ int main() {
         int choice = main_menu();
 
         if (choice == 1) {
-            // add goat later
+            // add goat 
         }
         else if (choice == 2) {
-            // delete goat later
+            // delete goat 
         }
         else if (choice == 3) {
-            // display goats later
+            // display goats 
         }
         else if (choice == 4) {
             again = false;
         }
     }
 
-    return choice;
-
-    
-    // srand(time(0));
-    // bool again;
-
-    // read & populate arrays for names and colors
-    // ifstream fin("names.txt");
-    // string names[SZ_NAMES];
-    // int i = 0;
-    // while (fin >> names[i++]);
-    // fin.close();
-    // ifstream fin1("colors.txt");
-    // string colors[SZ_COLORS];
-    // i = 0;
-    // while (fin1 >> colors[i++]);
-    // fin1.close();
-
-
-
-
     return 0;
 }
+
 
 int main_menu() {
     int choice;
