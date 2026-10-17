@@ -40,14 +40,14 @@ int main() {
         int choice = main_menu();
 
         if (choice == 1) {
-            // add goat 
+            add_goat(trip, names, colors);
         }
         else if (choice == 2) {
-            // delete goat 
+            // delete goat
         }
         else if (choice == 3) {
-            // display goats 
-        }
+            display_trip(trip);
+        }        
         else if (choice == 4) {
             again = false;
         }
@@ -75,5 +75,27 @@ int main_menu() {
     }
 
     return choice;
+}
+
+void add_goat(list<Goat> &trip, string names[], string colors[]) {
+    string name = names[rand() % SZ_NAMES];
+    string color = colors[rand() % SZ_COLORS];
+    int age = rand() % (MAX_AGE + 1);
+
+    Goat newGoat(name, age, color);
+    trip.push_back(newGoat);
+}
+
+void display_trip(list<Goat> trip) {
+    if (trip.empty()) {
+        cout << "There are no goats in the trip." << endl;
+        return;
+    }
+
+    for (Goat g : trip) {
+        cout << g.get_name() << " "
+             << g.get_age() << " "
+             << g.get_color() << endl;
+    }
 }
 
